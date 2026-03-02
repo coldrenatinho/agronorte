@@ -26,6 +26,7 @@ CREATE TABLE order_items (
     product_name VARCHAR(200)   NOT NULL,
     unit_price   DECIMAL(15, 2) NOT NULL,
     quantity     INT            NOT NULL,
+    subtotal     DECIMAL(15, 2) NOT NULL,
     CONSTRAINT pk_order_items PRIMARY KEY (id),
     CONSTRAINT fk_order_items_order FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
     CONSTRAINT chk_order_items_qty CHECK (quantity > 0),

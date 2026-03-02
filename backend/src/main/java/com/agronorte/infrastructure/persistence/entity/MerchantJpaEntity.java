@@ -38,7 +38,7 @@ public class MerchantJpaEntity {
     @Column(length = 100)
     private String city;
 
-    @Column(length = 2)
+    @Column(length = 2, columnDefinition = "CHAR(2)")
     private String state;
 
     @Column(columnDefinition = "TEXT")
