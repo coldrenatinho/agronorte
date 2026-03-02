@@ -1,6 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { useAuthStore } from '../../store/useAuthStore';
-import api from '../../api/client';
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
@@ -17,7 +15,6 @@ const mockChartData = [
 ];
 
 export const Dashboard = () => {
-    const { user } = useAuthStore();
 
     const { data: stats, isLoading } = useQuery({
         queryKey: ['dashboard-stats'],

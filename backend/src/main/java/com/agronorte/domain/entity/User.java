@@ -34,19 +34,18 @@ public class User {
                 role,
                 true,
                 LocalDateTime.now(),
-                LocalDateTime.now()
-        );
+                LocalDateTime.now());
     }
 
     // Reconstituição a partir da persistência (sem lógica de criação)
     public static User reconstitute(UUID id, String name, String email, String passwordHash,
-                                     UserRole role, boolean active,
-                                     LocalDateTime createdAt, LocalDateTime updatedAt) {
+            UserRole role, boolean active,
+            LocalDateTime createdAt, LocalDateTime updatedAt) {
         return new User(id, name, new Email(email), passwordHash, role, active, createdAt, updatedAt);
     }
 
     private User(UUID id, String name, Email email, String passwordHash,
-                 UserRole role, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt) {
+            UserRole role, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -77,7 +76,7 @@ public class User {
     }
 
     public String getEmailValue() {
-        return email.getValue();
+        return email.value();
     }
 
     private static void validateName(String name) {

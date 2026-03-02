@@ -1,15 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Search, Filter, Plus } from 'lucide-react';
-import api from '../../api/client';
-
-interface Product {
-    id: string;
-    name: string;
-    category: string;
-    price: number;
-    stockQuantity: number;
-}
 
 export const Products = () => {
     const [searchTerm, setSearchTerm] = useState('');
