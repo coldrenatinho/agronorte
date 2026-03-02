@@ -1,0 +1,31 @@
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot
+application-local.yml
+
+# Node / NPM
+node_modules/
+dist/
+.vite/
+frontend/.env.local
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Docker
+*.env
+
+# Kubernetes secrets
+infra/k8s/secrets-local.yaml

@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=agronorte
+      - DB_USER=agronorte
+      - DB_PASSWORD=agronorte_dev
+      - LOG_LEVEL=DEBUG
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - agronorte-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - agronorte-net
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=agronorte
+      - MYSQL_USER=agronorte
+      - MYSQL_PASSWORD=agronorte_dev
+      - MYSQL_ROOT_PASSWORD=root_secret
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_secret"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - agronorte-net
+
+  adminer:
+    image: adminer:latest
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mysql
+    networks:
+      - agronorte-net
+
+volumes:
+  mysql_data:
+
+networks:
+  agronorte-net:
+    driver: bridge
