@@ -42,7 +42,7 @@ spring:
 
 security:
   jwt:
-    secret: ${JWT_SECRET:bXlhZ3Jvbm9ydGVzdXBlcnNlY3JldGtleWZvcmRldmVsb3BtZW50b25seW5vdGZvcnByb2R1Y3Rpb24=}
+    secret: ${JWT_SECRET:bXlhZ3Jvbm9ydGVzdXBlcnNlY3JldGtleWZvcmRldmVsb3BtZW50b25seW5vdGZvcnByb2R1Y3Rpb24xMjM0NTY3ODkw}
     expiration-ms: ${JWT_EXPIRATION_MS:86400000}  # 24h
 
 server:

@@ -19,7 +19,7 @@ VALUES (
     UNHEX(REPLACE(UUID(), '-', '')),
     'Admin AgroNorte',
     'admin@agronorte.com.br',
-    '$2a$12$oRiDdFAIVxEe4J9Y9Cq.pO8G1oZ5OsA2NHdFG2kI6Kf/MZyxZ6bSC', -- senha: Admin@2024
+    '$2a$12$cWEZffK1TeWMefr3tcY5zOsmxIyrOuPZx36AvVWvnyYtaz4CWN8oe', -- senha: Admin@2024
     'ADMIN',
     TRUE,
     NOW(6),

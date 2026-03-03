@@ -14,6 +14,7 @@ services:
       - DB_USER=agronorte
       - DB_PASSWORD=agronorte_dev
       - LOG_LEVEL=DEBUG
+      - JWT_SECRET=bXlhZ3Jvbm9ydGVzdXBlcnNlY3JldGtleWZvcmRldmVsb3BtZW50b25seW5vdGZvcnByb2R1Y3Rpb24xMjM0NTY4OTA=
     depends_on:
       mysql:
         condition: service_healthy
